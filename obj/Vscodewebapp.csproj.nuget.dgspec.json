@@ -10,11 +10,11 @@
         "projectUniqueName": "/home/nishwanth/Vscodewebapp/Vscodewebapp.csproj",
         "projectName": "Vscodewebapp",
         "projectPath": "/home/nishwanth/Vscodewebapp/Vscodewebapp.csproj",
-        "packagesPath": "/home/nishwanth/.nuget/packages/",
+        "packagesPath": "/root/.nuget/packages/",
         "outputPath": "/home/nishwanth/Vscodewebapp/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/nishwanth/.nuget/NuGet/NuGet.Config"
+          "/root/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
