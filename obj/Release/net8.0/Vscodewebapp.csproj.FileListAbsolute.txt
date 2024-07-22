@@ -29,8 +29,3 @@
 /home/nishwanth/Vscodewebapp/obj/Release/net8.0/Vscodewebapp.pdb
 /home/nishwanth/Vscodewebapp/obj/Release/net8.0/Vscodewebapp.genruntimeconfig.cache
 /home/nishwanth/Vscodewebapp/obj/Release/net8.0/ref/Vscodewebapp.dll
-/home/nishwanth/Vscodewebapp/bin/Release/net8.0/C:/Program Files/dotnet/myapp/web.config
-/home/nishwanth/Vscodewebapp/bin/Release/net8.0/C:/Program Files/dotnet/myapp/appsettings.Development.json
-/home/nishwanth/Vscodewebapp/bin/Release/net8.0/C:/Program Files/dotnet/myapp/appsettings.json
-/home/nishwanth/Vscodewebapp/bin/Release/net8.0/C:/Program Files/dotnet/myapp/Vscodewebapp.deps.json
-/home/nishwanth/Vscodewebapp/bin/Release/net8.0/C:/Program Files/dotnet/myapp/Vscodewebapp.runtimeconfig.json

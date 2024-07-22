@@ -1,7 +1,0 @@
-/home/nishwanth/Vscodewebapp/C:/Program Files/dotnet/myapp/Vscodewebapp
-/home/nishwanth/Vscodewebapp/C:/Program Files/dotnet/myapp/appsettings.Development.json
-/home/nishwanth/Vscodewebapp/C:/Program Files/dotnet/myapp/appsettings.json
-/home/nishwanth/Vscodewebapp/C:/Program Files/dotnet/myapp/Vscodewebapp.dll
-/home/nishwanth/Vscodewebapp/C:/Program Files/dotnet/myapp/Vscodewebapp.deps.json
-/home/nishwanth/Vscodewebapp/C:/Program Files/dotnet/myapp/Vscodewebapp.runtimeconfig.json
-/home/nishwanth/Vscodewebapp/C:/Program Files/dotnet/myapp/Vscodewebapp.pdb
