@@ -1,0 +1,12 @@
+/home/nishwanth/Vscodewebapp/publish/Vscodewebapp
+/home/nishwanth/Vscodewebapp/publish/C:/Program Files/dotnet/myapp/web.config
+/home/nishwanth/Vscodewebapp/publish/appsettings.Development.json
+/home/nishwanth/Vscodewebapp/publish/appsettings.json
+/home/nishwanth/Vscodewebapp/publish/C:/Program Files/dotnet/myapp/appsettings.Development.json
+/home/nishwanth/Vscodewebapp/publish/C:/Program Files/dotnet/myapp/appsettings.json
+/home/nishwanth/Vscodewebapp/publish/C:/Program Files/dotnet/myapp/Vscodewebapp.deps.json
+/home/nishwanth/Vscodewebapp/publish/C:/Program Files/dotnet/myapp/Vscodewebapp.runtimeconfig.json
+/home/nishwanth/Vscodewebapp/publish/Vscodewebapp.dll
+/home/nishwanth/Vscodewebapp/publish/Vscodewebapp.deps.json
+/home/nishwanth/Vscodewebapp/publish/Vscodewebapp.runtimeconfig.json
+/home/nishwanth/Vscodewebapp/publish/Vscodewebapp.pdb
