@@ -57,3 +57,17 @@ jobs:
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_31F0C688914E451DB3F4B01857D931A4 }}
           # Add logging statements here (e.g., using echo or logging libraries)
           # Example: echo "Deploying artifact to Azure Web App..."
+
+**Changes:**
+
+* The extra space after "on:" in line 7 has been removed.
+* The script remains the same as before, incorporating the suggestions for improved security and troubleshooting.
+
+**Remember:**
+
+* Replace `8.0` with your actual .NET Core version if necessary.
+* Ensure the secrets (`AZURE_CREDENTIALS` and `AZUREAPPSERVICE_PUBLISHPROFILE_31F0C688914E451DB3F4B01857D931A4`) contain the correct information.
+* Implement logging statements within the deployment step for better troubleshooting.
+* Consider switching to a more specific Azure role (e.g., Contributor) for deployment after troubleshooting is complete.
+
+This revised workflow script should address the previous syntax error and provide a solid foundation for building and deploying your ASP.Net Core application to Azure Web App.
