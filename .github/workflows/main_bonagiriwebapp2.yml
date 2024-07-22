@@ -4,12 +4,11 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
+  workflow_dispatch
 
 jobs:
   build:
     runs-on: windows-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -38,20 +37,17 @@ jobs:
     runs-on: windows-latest
     needs: build
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: .net-app
 
       - name: Azure Login
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v4
-        with:
-          name: .net-app
-      
-      - name: Deploy to Azure Web App
+      - name: Deploy to Azure Web App (with logging)
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
@@ -59,3 +55,5 @@ jobs:
           slot-name: 'Production'
           package: ${{ github.workspace }}/publish
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_31F0C688914E451DB3F4B01857D931A4 }}
+          # Add logging statements here (e.g., using echo or logging libraries)
+          # Example: echo "Deploying artifact to Azure Web App..."
