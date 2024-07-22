@@ -11,13 +11,13 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0.x'  # Ensure this matches your .NET version
+          dotnet-version: '8.0'  # Update this if using a different .NET version
 
       - name: Restore dependencies
         run: dotnet restore
@@ -25,33 +25,37 @@ jobs:
       - name: Build with dotnet
         run: dotnet build --configuration Release
 
-      - name: Publish with dotnet
-        run: dotnet publish --configuration Release --output ./publish
+      - name: Publish the app
+        run: dotnet publish -c Release -o publish
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path: ./publish
+          path: publish  # Use the 'publish' directory
 
   deploy:
     runs-on: windows-latest
     needs: build
-    environment:
-      name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
           name: .net-app
-
+      
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'Bonagiriwebapp2'
           slot-name: 'Production'
-          package: ./.net-app
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
+          package: ${{ github.workspace }}/publish
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_31F0C688914E451DB3F4B01857D931A4 }}
