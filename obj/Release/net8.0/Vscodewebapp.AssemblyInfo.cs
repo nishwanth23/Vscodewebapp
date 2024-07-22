@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Vscodewebapp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ea2050177dacad55c0ec449fa65c1bb77e8d9e52")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aefc9f7b40b38381c9da10e2632c25ce5e0a6851")]
 [assembly: System.Reflection.AssemblyProductAttribute("Vscodewebapp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Vscodewebapp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
