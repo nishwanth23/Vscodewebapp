@@ -1,73 +1,59 @@
 name: Build and deploy ASP.Net Core app to Azure Web App - Bonagiriwebapp2
 
+# Trigger workflow on push events to the "main" branch (optional)
 on:
   push:
     branches:
       - main
-  workflow_dispatch
 
 jobs:
   build:
     runs-on: windows-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-      - name: Set up .NET Core
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: '8.0'  # Update this if using a different .NET version
+    - name: Set up .NET Core
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0'  # Update this if using a different .NET version
 
-      - name: Restore dependencies
-        run: dotnet restore
+    - name: Restore dependencies
+      run: dotnet restore
 
-      - name: Build with dotnet
-        run: dotnet build --configuration Release
+    - name: Build with dotnet
+      run: dotnet build --configuration Release
 
-      - name: Publish the app
-        run: dotnet publish -c Release -o publish
+    - name: Publish the app
+      run: dotnet publish -c Release -o publish
 
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v4
-        with:
-          name: .net-app
-          path: publish  # Use the 'publish' directory
+    - name: Upload artifact for deployment job
+      uses: actions/upload-artifact@v4
+      with:
+        name: .net-app
+        path: publish  # Use the 'publish' directory
 
   deploy:
     runs-on: windows-latest
     needs: build
     steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v4
-        with:
-          name: .net-app
+    - name: Download artifact from build job
+      uses: actions/download-artifact@v4
+      with:
+        name: .net-app
 
-      - name: Azure Login
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Deploy to Azure Web App (with logging)
-        id: deploy-to-webapp
-        uses: azure/webapps-deploy@v3
-        with:
-          app-name: 'Bonagiriwebapp2'
-          slot-name: 'Production'
-          package: ${{ github.workspace }}/publish
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_31F0C688914E451DB3F4B01857D931A4 }}
-          # Add logging statements here (e.g., using echo or logging libraries)
-          # Example: echo "Deploying artifact to Azure Web App..."
-
-**Changes:**
-
-* The extra space after "on:" in line 7 has been removed.
-* The script remains the same as before, incorporating the suggestions for improved security and troubleshooting.
-
-**Remember:**
-
-* Replace `8.0` with your actual .NET Core version if necessary.
-* Ensure the secrets (`AZURE_CREDENTIALS` and `AZUREAPPSERVICE_PUBLISHPROFILE_31F0C688914E451DB3F4B01857D931A4`) contain the correct information.
-* Implement logging statements within the deployment step for better troubleshooting.
-* Consider switching to a more specific Azure role (e.g., Contributor) for deployment after troubleshooting is complete.
-
-This revised workflow script should address the previous syntax error and provide a solid foundation for building and deploying your ASP.Net Core application to Azure Web App.
+    - name: Deploy to Azure Web App (with logging)
+      id: deploy-to-webapp
+      uses: azure/webapps-deploy@v3
+      with:
+        app-name: 'Bonagiriwebapp2'
+        slot-name: 'Production'
+        package: ${{ github.workspace }}/publish
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_31F0C688914E451DB3F4B01857D931A4 }}
+        # Add logging statements here (e.g., using echo or logging libraries)
+        # Example: echo "Deploying artifact to Azure Web App..."
