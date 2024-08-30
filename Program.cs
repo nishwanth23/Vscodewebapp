@@ -12,11 +12,6 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
     app.UseHttpsRedirection();
 }
-else
-{
-    // In Development, you can choose to skip HTTPS redirection if not necessary
-    // app.UseHttpsRedirection();
-}
 
 app.UseStaticFiles();
 app.UseRouting();
